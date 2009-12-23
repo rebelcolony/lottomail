@@ -1,0 +1,12 @@
+<h3><%=h @subscription.name %></h3>
+Subscribers: <%= @subscription.users.count %> 
+	<% unless @subscription.schedule_delivery.nil? %>
+  Latest Delivery: <%= @subscription.schedule_delivery.to_s(:long) %><br />
+<% end %>
+<ul>
+<% for user in @subscribed_users %>
+	<li><%= user.name %> <small><%= user.email %></small></li>
+<% end -%>		
+
+<%= link_to 'Edit', edit_subscription_path(@subscription) %> |
+<%= link_to 'Back', subscriptions_path %>

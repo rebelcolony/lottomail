@@ -1,0 +1,153 @@
+/*==UNIVERSAL===============================================*/
+* {
+	padding:0;
+	margin:0;
+}
+
+li {
+	list-style-type:none;
+}
+
+div {
+	margin-top:10px;
+}
+body {
+	background-color: #E5E5E5;
+	font-family: Tahoma, Helvetica ;
+	color:#333333;
+	font-size:13px;
+}
+
+a {
+	color:#000;
+	text-decoration:underline;
+}
+
+a:hover {
+	background-color:#00F;
+	color:#fff;
+}
+
+p {
+	margin-top:5px;
+}
+
+h3 {
+	color:#333;
+}
+
+h3 a {
+	color:#333;
+}
+/*==WRAPPER===============================================*/
+
+#wrapper {
+	background-color: #E5E5E5;
+	margin-top:20px;
+}
+
+/*==CONTENT===============================================*/
+
+#content {
+	margin: 0 auto;
+	border:;
+	background-color: #ecf2fe;
+	width:600px;
+	height:600px;
+	padding:;
+	-webkit-box-shadow: 2px 2px 4px #a9a9a9;
+	-moz-box-shadow: 2px 2px 4px #a9a9a9;
+	box-shadow: 2px 2px 4px #a9a9a9;
+}
+
+/*==NAV===============================================*/
+
+#nav {
+	background:#ffffcb;
+	height:40px;
+	color:#7a7476;
+	padding:5px;
+	border-bottom:1px solid #e5e4b8;
+}
+
+#nav a {
+	color:#7a7476;
+}
+
+#nav img {
+	
+}
+
+/*==MAIN===============================================*/
+
+#main {
+	padding:10px;
+}
+
+#lotto a:hover {
+	background-color:#ecf2fe;
+}
+
+#euro a:hover {
+	background-color:#ecf2fe;
+}
+
+#thunder a:hover {
+	background-color:#ecf2fe;
+}
+
+.lotto_numbers {
+	font-size:20px;
+	color:#999;
+}
+/*==FLASH ERRORS===============================================*/
+
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 8px;
+}
+#errorExplanation ul {
+  margin: 2px 24px;
+}
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: disc;
+}

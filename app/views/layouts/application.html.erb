@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Lotto Mail</title>
+	<%= stylesheet_link_tag "styles" %>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="content">
+			<div id="nav">
+				<%= image_tag "lottomail_beta.png" %>
+				<%= link_to "home", :controller => "lotto", :action => "index" %>
+				<%= link_to "users", :controller => "users", :action => "index" %>
+				<%= link_to "subscriptions", :controller => "subscriptions", :action => "index" %>
+			<!-- END #NAV --></div>
+			<div id="main">
+				<%- flash.each do |name, msg| -%>
+        	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+      	<%- end -%>
+				<%= yield %>
+			<!-- END #MAIN --></div>
+		</div>
+	</div>
+</body>

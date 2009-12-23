@@ -1,0 +1,12 @@
+<% for user in @users %>
+	<h3><%= user.name %></h3>
+	<ul>
+	<% for subscription in user.subscriptions %>
+		<li><%= subscription.name %></li>
+	<% end -%>
+		<%= link_to 'Edit', edit_user_path(user) %>
+		<%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %>
+	</ul>
+<% end -%>	
+
+<%= link_to 'New user', new_user_path %>
