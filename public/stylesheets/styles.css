@@ -19,13 +19,12 @@ body {
 }
 
 a {
-	color:#000;
+	color:#00F;
 	text-decoration:underline;
 }
 
 a:hover {
-	background-color:#00F;
-	color:#fff;
+
 }
 
 p {
@@ -53,7 +52,7 @@ h3 a {
 	border:;
 	background-color: #ecf2fe;
 	width:600px;
-	height:600px;
+	height:700px;
 	padding:;
 	-webkit-box-shadow: 2px 2px 4px #a9a9a9;
 	-moz-box-shadow: 2px 2px 4px #a9a9a9;
@@ -63,10 +62,10 @@ h3 a {
 /*==NAV===============================================*/
 
 #nav {
-	background:#ffffcb;
-	height:40px;
+	background:#FCF9CD;
+	height:45px;
 	color:#7a7476;
-	padding:5px;
+	padding:10px;
 	border-bottom:1px solid #e5e4b8;
 }
 
@@ -81,7 +80,7 @@ h3 a {
 /*==MAIN===============================================*/
 
 #main {
-	padding:10px;
+	padding:0 10px 10px 10px;
 }
 
 #lotto a:hover {
@@ -100,7 +99,25 @@ h3 a {
 	font-size:20px;
 	color:#999;
 }
+
+/*==MAIN===============================================*/
+
+#password {
+	margin-top:20px;
+	margin-left:10px;
+}
+
+input {
+	margin:0;
+	padding:0;
+}
+
 /*==FLASH ERRORS===============================================*/
+
+#flash_messages{
+	width:500px;
+	height:35px;
+}
 
 #flash_notice, #flash_error {
   padding: 5px 8px;

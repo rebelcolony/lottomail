@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :subscriptions, :member => { :deliver => :post }
   map.resources :users
-  
+  map.resources :sessions
+  map.login 'login', :controller => 'sessions', :action => 'new'
+  map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

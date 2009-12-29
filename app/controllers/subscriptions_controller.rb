@@ -1,23 +1,10 @@
 class SubscriptionsController < ApplicationController
+  before_filter :authorize
 
   def index
     @subscriptions = Subscription.all
   end
   
-  #deliver the different subscriptions
-  def deliver
-    @subscription = Subscription.find(params[:id])
-    @users = @subscription.users
-    @subject = @subscription.subject
-    for user in @users
-      @lotto_numbers = (1..49).to_a.sort{rand() - 0.5 } [0..5]
-      @recipients = user.email
-      @subscription.deliver(@recipients, @subscription, @user, @subject, @lotto_numbers)
-    end
-    flash[:notice] = "Delivered Subscription"
-    redirect_to subscriptions_url
-  end
-
   def show
     @subscription = Subscription.find(params[:id])
     @subscribed_users = @subscription.users

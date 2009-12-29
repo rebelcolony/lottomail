@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091220112251) do
+ActiveRecord::Schema.define(:version => 20091223174753) do
 
   create_table "subscriptions", :force => true do |t|
     t.string   "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20091220112251) do
     t.string   "subject"
     t.text     "content"
     t.datetime "schedule_delivery"
+    t.datetime "delivered_at"
   end
 
   create_table "subscriptions_users", :id => false, :force => true do |t|
