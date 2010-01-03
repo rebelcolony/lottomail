@@ -1,3 +1,4 @@
-Hi <%= @user.name %>
-Your euro numbers are <%= "#{@euro_numbers.join(' ')}" %>
-Your euro stars are <%= "#{@euro_stars.join(' ')}" %>
+<h3>Your numbers for tonight's Euro Millions draw are:</h3> 
+Main numbers: <%= "#{@euro_numbers.sort.join(' ')}" %><br />
+Stars:  <%= "#{@euro_stars.sort.join(' ')}" %>
+<p><small>Sent on <%= Time.now %> Want to stop receiving these lotto-mail alerts? Send email to support@lottomail.org</p></small>

@@ -3,7 +3,7 @@ Subscribers: <%= @subscription.users.count %>
 	<% unless @subscription.delivered_at.nil? %>
   Latest Delivery: <%= @subscription.delivered_at.to_s(:long) %><br />
 <% end %>
-Scheduled Delivery: <%= @subscription.schedule_delivery.to_s(:long) %><br />
+Scheduled Delivery: <%= @subscription.schedule_delivery %><br />
 <ul>
 <% for user in @subscribed_users %>
 	<li><%= user.name %> <small><%= user.email %></small></li>

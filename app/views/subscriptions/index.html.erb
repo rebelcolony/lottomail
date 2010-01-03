@@ -1,11 +1,11 @@
 <% for subscription in @subscriptions %>
-  <div>
+  <div class="subscription">
 		<h3><%= link_to subscription.name, subscription %></h3>
 		Subscribers: <%= subscription.users.count %> <br />
 			<% unless subscription.delivered_at.nil? %>
 	      Latest Delivery: <%= subscription.delivered_at.to_s(:long) %><br />
 	    <% end %>
-	  Scheduled Delivery: <%= subscription.schedule_delivery.to_s(:long) %><br />
+	  Scheduled Delivery: <%= subscription.schedule_delivery%><br />
 		<%= link_to 'Edit', edit_subscription_path(subscription) %>
 		<%= link_to 'Destroy', subscription, :confirm => 'Are you sure?', :method => :delete %>
 		<%= link_to "Deliver", deliver_subscription_path(subscription), :confirm => "Are you sure?", :method => :post %>

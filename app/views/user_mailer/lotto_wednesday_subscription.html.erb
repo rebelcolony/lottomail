@@ -1,2 +1,3 @@
-Hi <%= @user.name %>
-Your lotto numbers are <%= "#{@lotto_numbers.join(' ')}" %>
+<h3>Your lotto numbers for tonights National Lottery Wednesday Lotto are:</h3> 
+<%= "#{@lotto_numbers.sort.join(' ')}" %>
+<p><small>Sent on <%= Time.now %> Want to stop receiving these lotto-mail alerts? Send email to support@lottomail.org</p></small>
