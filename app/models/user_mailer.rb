@@ -1,4 +1,12 @@
 class UserMailer < ActionMailer::Base
+  
+  def registration_confirmation(user)
+    recipients   user.email
+    from         "no-reply@lottomail.net"
+    subject      "Thanks for Registering with Lottomail"
+    body         :user => user
+    content_type "text/html"
+  end
 
 def lotto_saturday_subscription(to_addresses, subject, lotto_numbers)
   recipients   to_addresses

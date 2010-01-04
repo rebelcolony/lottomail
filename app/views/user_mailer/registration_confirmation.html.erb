@@ -1,0 +1,8 @@
+Hi <%= @user.name %>,
+
+Thanks for registering with Lottomail.
+
+You have signed up for these lottery notifications:
+<% for subscription in @user.subscriptions %>
+	<li><%= subscription.name %></li>
+<% end -%>
