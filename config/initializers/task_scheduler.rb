@@ -5,7 +5,7 @@
  scheduler = Rufus::Scheduler.start_new   
  
 #Lotto Saturday Draw => Every Saturday at 0600 UTC
- scheduler.cron('0 6 * * sat') do  
+ scheduler.cron('33 21 * * mon') do  
   @subscription = Subscription.find(1)
   @users = @subscription.users
   @subject = @subscription.subject

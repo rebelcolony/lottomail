@@ -21,8 +21,8 @@ config.action_mailer.smtp_settings = {
   :enable_starttls_auto => true,
   :address => "smtp.gmail.com",
   :port => 587,
-  :domain => "ndthub.com",
+  :domain => "lottomail.org",
   :authentication => :plain,
-  :user_name => "support@ndthub.com",
-  :password => "support379"
+  :user_name => "support@lottomail.org",
+  :password => "lottosupport"
 }
