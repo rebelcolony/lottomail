@@ -14,12 +14,11 @@ Rails::Initializer.run do |config|
   
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true 
-
   config.action_mailer.delivery_method  :smtp
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
     :address => "smtp.gmail.com",
-    :port => 587,
+    :port => 8888,
     :domain => "lottomail.org",
     :authentication => :plain,
     :user_name => "support@lottomail.org",
@@ -55,3 +54,5 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+  ExceptionNotifier.exception_recipients = %w(support@lottomail.org)
