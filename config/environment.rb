@@ -18,7 +18,7 @@ Rails::Initializer.run do |config|
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
     :address => "smtp.gmail.com",
-    :port => 8888,
+    :port => 25,
     :domain => "lottomail.org",
     :authentication => :plain,
     :user_name => "support@lottomail.org",
