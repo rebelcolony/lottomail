@@ -11,20 +11,23 @@
 	<div id="wrapper">
 		<div id="content">
 			<div id="nav">
-				<%= link_to image_tag("lottomail_beta.png", :border => 0), :controller => "lotto", :action => "index" %>
 				<% if admin? %>
-					<%= link_to "users", :controller => "users", :action => "index" %>
-					<%= link_to "subscriptions", :controller => "subscriptions", :action => "index" %>
+				<p id="nav_links">
+					<%= link_to "Home", :controller => "users", :action => "new" %>
+					<%= link_to "Users", :controller => "users", :action => "index" %>
+					<%= link_to "Subscriptions", :controller => "subscriptions", :action => "index" %>
+				</p>	
 				<% end -%>	
 			<!-- END #NAV --></div>
 			<div id="main">
-				<div id="flash_messages">
-					<%- flash.each do |name, msg| -%>
-        		<%= content_tag :div, msg, :id => "flash_#{name}" %>
+				<div id="main_content">
+					<div id="flash_messages">
+						<%- flash.each do |name, msg| -%>
+        			<%= content_tag :div, msg, :id => "flash_#{name}" %>
       			<%- end -%>
-				</div>
-				test
+					</div>		
 				<%= yield %>
+				<!-- END MAIN_CONTENT --></div>
 			<!-- END #MAIN --></div>
 		</div>
 	</div>

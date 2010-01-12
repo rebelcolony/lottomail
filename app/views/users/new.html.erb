@@ -1,2 +1,22 @@
-<h3>Just fill in your name and email and choose which lottery draw you want to subscribe to</h3>
-<%= render :partial => 'form' %>
+<h2>Never forget to play the lottery again.</h2>
+<div id="story">
+	<div id="left_text">
+		<h3>Email Reminders.</h3>
+		<p>You choose which lottery you want to subscribe to and we will 
+				send you an email reminder 8 hours before every draw.
+		</p>
+		<h3>Unique Random Numbers.</h3>
+		<p>We will also add your personal batch of unique random numbers 
+				to the email.
+		</p>
+		<h3>Totally Free.</h3>
+		<p>The service is free and we promise never to sell your details 
+		or send you spam. Unsubscribe to lotto-mail anytime.
+		</p>
+	</div>
+	<%= image_tag("email.jpg", :border => 0) %>
+</div>
+<div id="new_user_form">
+	<h3>Sign Up</h3>
+	<%= render :partial => 'form' %>
+</div>
