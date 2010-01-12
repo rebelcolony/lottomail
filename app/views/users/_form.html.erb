@@ -11,10 +11,11 @@
 	<% for subscription in Subscription.all %>
 		<p>
 			<%= check_box_tag "user[subscription_ids][]", subscription.id, @user.subscriptions.include?(subscription) %>
-			<%= subscription.name %>
+			<%= subscription.name %><br />
 	<% end -%>
 
 	<p>	
+		<br />
 		<%= f.submit "Submit" %>
 	</p>
 <% end -%>		

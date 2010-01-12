@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.deliver_registration_confirmation(@user)
       flash[:notice] = "Successfully registered"
-      redirect_to :controller => "lotto", :action => "index"
+      redirect_to :controller => "users", :action => "new"
     else
       render :action => 'new'
     end

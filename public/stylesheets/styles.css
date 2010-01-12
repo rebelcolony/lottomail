@@ -9,11 +9,11 @@ li {
 }
 
 div {
-	margin-top:10px;
+
 }
 body {
 	background-color: #E5E5E5;
-	font-family: Tahoma, Helvetica ;
+	font-family: Lucida Grande, Tahoma, Helvetica ;
 	color:#333333;
 	font-size:13px;
 }
@@ -28,11 +28,12 @@ a:hover {
 }
 
 p {
-	margin-top:5px;
+	margin-top:3px;
 }
 
 h3 {
 	color:#333;
+	font-size:1.2em;
 }
 
 h3 a {
@@ -42,6 +43,16 @@ h3 a {
 h3 a:hover {
 	color:red;
 	background-color:;
+}
+
+h2 {
+	background:#faf986;
+	text-align:center;
+	line-height:43px;
+	border-top:1px solid #f2ce28;
+	border-bottom:1px solid #f2ce28;
+	color:#484848;
+	
 }
 /*==WRAPPER===============================================*/
 
@@ -55,38 +66,110 @@ h3 a:hover {
 #content {
 	margin: 0 auto;
 	border:;
-	background-color: #ecf2fe;
-	width:600px;
+	background-color:;
+	width:1000px;
 	min-height:700px;
 	padding:;
-	-webkit-box-shadow: 2px 2px 4px #a9a9a9;
-	-moz-box-shadow: 2px 2px 4px #a9a9a9;
-	box-shadow: 2px 2px 4px #a9a9a9;
 }
 
 /*==NAV===============================================*/
 
 #nav {
-	background:#FCF9CD;
-	height:45px;
-	color:#7a7476;
-	padding:10px;
-	border-bottom:1px solid #e5e4b8;
+	background: url(../images/banner.png) no-repeat left top;
+	height:136px;
+}
+
+#nav_links {
+	padding-top:88px;
+	padding-left:320px;
 }
 
 #nav a {
-	color:#7a7476;
+	color:#c4c3cb;
+	text-decoration:none;
+	padding:4px;
 }
 
-#nav img {
-	
+#nav a:hover {
+	color:#2b1470;
+	background:#c4c3cb;
+	text-decoration:none;
 }
+
+/*==MAIN CONTENT==============================================*/
+#main_content{
+	padding-left:28px;
+	padding-right:23px;
+}
+
+
+
 
 /*==MAIN===============================================*/
 
 #main {
-	padding:0 10px 10px 10px;
+	background: url(../images/mid.png) repeat-y scroll left top;
+	
 }
+
+
+/*==STORY===============================================*/
+#story {
+	background:#eaeaea;
+	height:335px;
+	border:1px solid #cccccc;
+	width:900px;
+	margin-top:50px;
+	margin-left:auto;
+	margin-right:auto;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+}
+
+#story img {
+	padding-top:16px;
+	padding-right:10px;
+	float:right;
+}
+
+#left_text {
+	float:left;
+	width:450px;
+	padding-left:10px;
+	padding-top:20px;
+}
+
+#left_text p {
+	padding-bottom:45px;
+}
+
+/*==NEW-USER-FORM===============================================*/
+#new_user_form {
+	background:#eaeaea;
+	height:;
+	border:1px solid #cccccc;
+	width:600px;
+	margin-top:50px;
+	margin-left:auto;
+	margin-right:auto;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	
+}
+
+#new_user_form h3 {
+	text-align:center;
+	padding-top:8px;
+}
+
+#new_user_form form {
+	padding-left:180px;
+	padding-top:10px;
+}
+
+
+
+/*==BUTTONS===============================================*/
 
 #lotto a:hover {
 	background-color:#ecf2fe;
@@ -135,7 +218,7 @@ input {
 
 #flash_notice, #flash_error {
   padding: 5px 8px;
-  margin: 10px 0;
+  margin:;
 }
 
 #flash_notice {
@@ -153,11 +236,12 @@ input {
 }
 
 #errorExplanation {
-  width: 400px;
+  width: 350px;
   border: 2px solid #CF0000;
   padding: 0px;
   padding-bottom: 12px;
   margin-bottom: 20px;
+	margin-right:20px;
   background-color: #f0f0f0;
 }
 
