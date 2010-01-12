@@ -9,13 +9,13 @@
 		<%= f.text_field :email %>
 	</p>
 	<% for subscription in Subscription.all %>
-		<p>
+		<p class="check_box">
 			<%= check_box_tag "user[subscription_ids][]", subscription.id, @user.subscriptions.include?(subscription) %>
 			<%= subscription.name %><br />
 	<% end -%>
 
-	<p>	
+	<p id="submit_button">	
 		<br />
-		<%= f.submit "Submit" %>
+		<%= f.submit "Subscribe Me!" %>
 	</p>
 <% end -%>		

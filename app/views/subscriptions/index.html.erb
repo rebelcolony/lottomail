@@ -1,5 +1,6 @@
+<div class="subscription">
 <% for subscription in @subscriptions %>
-  <div class="subscription">
+  <div class="subscription_list">
 		<h3><%= link_to subscription.name, subscription %></h3>
 		Subscribers: <%= subscription.users.count %> <br />
 			<% unless subscription.delivered_at.nil? %>
@@ -16,3 +17,4 @@
 <br />
 
 <%= link_to 'New subscription', new_subscription_path %>
+</div>

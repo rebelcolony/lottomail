@@ -167,6 +167,32 @@ h2 {
 	padding-top:10px;
 }
 
+.check_box {
+	padding-bottom:5px;
+}
+
+#submit_button {
+	padding-bottom:10px;
+}
+
+
+/*==USERS LIST===============================================*/
+.users {
+	padding-left:20px;
+}
+
+.users_list {
+	padding-bottom:20px;
+}
+
+/*==USERS LIST===============================================*/
+.subscription {
+	padding-left:20px;
+}
+
+.subscription_list {
+	padding-bottom:20px;
+}
 
 
 /*==BUTTONS===============================================*/

@@ -1,3 +1,4 @@
+<div class="subscription">
 <h3><%=h @subscription.name %></h3>
 Subscribers: <%= @subscription.users.count %> 
 	<% unless @subscription.delivered_at.nil? %>
@@ -11,3 +12,4 @@ Scheduled Delivery: <%= @subscription.schedule_delivery %><br />
 
 <%= link_to 'Edit', edit_subscription_path(@subscription) %> |
 <%= link_to 'Back', subscriptions_path %>
+</div>

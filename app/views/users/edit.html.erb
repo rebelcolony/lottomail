@@ -1,4 +1,4 @@
-<% form_for(@user) do |f| %>
+<div class="users"><% form_for(@user) do |f| %>
 	<%= f.error_messages %>
 	<p>
 		<%= f.label :name %><br />
@@ -17,3 +17,4 @@
 		<%= f.submit "Update" %>
 	</p>
 <% end -%>
+</div>

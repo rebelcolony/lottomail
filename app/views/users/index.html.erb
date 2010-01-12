@@ -1,6 +1,6 @@
-<div id="users_list">
+<div class="users">
 <% for user in @users %>
-<div>
+<div class="users_list">
 	<h3><%= user.name %></h3>
 	<ul>
 	<% for subscription in user.subscriptions %>
@@ -9,7 +9,7 @@
 		<%= link_to 'Edit', edit_user_path(user) %>
 		<%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %>
 	</ul>
+	</div>	
 <% end -%>
-</div>	
-<br />
 <%= link_to 'New user', new_user_path %>
+</div>
