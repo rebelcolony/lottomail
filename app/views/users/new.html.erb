@@ -21,3 +21,17 @@
 	<h3>Sign Up</h3>
 	<%= render :partial => 'form' %>
 </div>
+<div id="lottery_numbers">
+	<div id="lottery_numbers_content">
+		<h3>Lottery Number Generator</h3>
+		<p class="para_padding_bottom">Use our random number generators to pick your numbers.</p>
+		<%= link_to image_tag("uk_lotto_button.gif", :border => 0), :controller => "lotto", :action => "new_lotto" %>
+		<%= link_to image_tag("uk_thunderball_button.gif", :border => 0), :controller => "lotto", :action => "new_thunder" %>
+		<%= link_to image_tag("euromillions_button.gif", :border => 0), :controller => "lotto", :action => "new_euro" %>
+		<%= link_to image_tag("newyork_button.gif", :border => 0), :controller => "lotto", :action => "new_newyork" %>
+		<%= link_to image_tag("usa_powerball_button.gif", :border => 0), :controller => "lotto", :action => "new_usa_powerball" %>
+		<%= link_to image_tag("canada649_button.gif", :border => 0), :controller => "lotto", :action => "new_canada_649" %>
+		<%= link_to image_tag("usa_mega_button.gif", :border => 0), :controller => "lotto", :action => "new_usamega" %>
+		<%= link_to image_tag("irish_button.gif", :border => 0), :controller => "lotto", :action => "new_irish" %>
+	</div>
+</div>

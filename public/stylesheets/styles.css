@@ -185,7 +185,7 @@ h2 {
 	padding-bottom:20px;
 }
 
-/*==USERS LIST===============================================*/
+/*==SUBSCRIPTIONS LIST===============================================*/
 .subscription {
 	padding-left:20px;
 }
@@ -194,8 +194,50 @@ h2 {
 	padding-bottom:20px;
 }
 
+/*==LOTTERY NUMBERS===============================================*/
+
+#lottery_numbers {
+	background:#eaeaea;
+	height:150px;
+	border:1px solid #cccccc;
+	width:900px;
+	margin-top:50px;
+	margin-left:auto;
+	margin-right:auto;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+}
+
+#lottery_numbers_content {
+	padding-left:8px;
+	padding-top:10px;
+}
+
+.para_padding_bottom {
+	padding-bottom:20px;
+}
+
+#random_numbers {
+	padding-left:20px;
+}
+
+/*==FOOTER===============================================*/
+#footer {
+	text-align:center;
+	color:#8D8D8D;
+	font-size:0.8em;
+	background:url(../images/bot.png) no-repeat left top;
+	height:118px;
+}
+
+#footer h4 {
+	padding-top:55px;
+	font-weight:normal;
+}
+
 
 /*==BUTTONS===============================================*/
+
 
 #lotto a:hover {
 	background-color:#ecf2fe;

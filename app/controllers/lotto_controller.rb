@@ -1,5 +1,5 @@
 class LottoController < ApplicationController
- 
+
   def index
       
   end
