@@ -4,8 +4,12 @@
  
  scheduler = Rufus::Scheduler.start_new   
  
+   scheduler.cron('12 8 * * wed') do 
+     puts "test"
+   end
+ 
  #Lotto Wednesday Draw => Every Wednesday at 0600 UTC
-  scheduler.cron('5 8 * * wed') do  
+  scheduler.cron('0 8 * * wed') do  
    @subscription = Subscription.find(2)
    @users = @subscription.users
    @subject = @subscription.subject
