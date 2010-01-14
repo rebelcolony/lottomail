@@ -4,7 +4,7 @@
  
  scheduler = Rufus::Scheduler.start_new   
  
-   scheduler.cron('30 8 * * thu') do 
+   scheduler.cron('35 8 * * thu') do 
      puts "test"
    end
  
