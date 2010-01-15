@@ -1,6 +1,6 @@
  require 'rubygems'
  require 'rufus/scheduler'
- 
+ require 'user_mailer'
  
  scheduler = Rufus::Scheduler::PlainScheduler.start_new   
  
@@ -8,13 +8,12 @@
    puts "job #{job.job_id} caought exception '#{exception}'"
  end
   
- end
-   scheduler.cron('55 17 * * fri') do 
+   scheduler.cron('59 17 * * fri') do 
      puts "test"
    end
  
     #Lotto Wednesday Draw => Every Wednesday at 0600 UTC
-     scheduler.cron('33 18 * * wed') do  
+     scheduler.cron('59 17 * * fri') do  
       @subscription = Subscription.find(2)
       @users = @subscription.users
       @subject = @subscription.subject
