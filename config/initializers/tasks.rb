@@ -8,7 +8,7 @@
    puts "job #{job.job_id} caought exception '#{exception}'"
  end
   
-   scheduler.cron('59 17 * * fri') do 
+   scheduler.cron('06 18 * * fri') do 
      puts "test"
    end
  
