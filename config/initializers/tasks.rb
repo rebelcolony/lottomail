@@ -5,15 +5,12 @@
  scheduler = Rufus::Scheduler::PlainScheduler.start_new   
  
  def scheduler.handle_exception (job, exception)
-   puts "job #{job.job_id} caought exception '#{exception}'"
+   puts "job #{job.job_id} caught exception '#{exception}'"
  end
   
-   scheduler.cron('06 18 * * fri') do 
-     puts "test"
-   end
  
     #Lotto Wednesday Draw => Every Wednesday at 0600 UTC
-     scheduler.cron('59 17 * * fri') do  
+     scheduler.cron('27 18 * * fri') do  
       @subscription = Subscription.find(2)
       @users = @subscription.users
       @subject = @subscription.subject
