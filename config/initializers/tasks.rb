@@ -8,12 +8,16 @@
    puts "job #{job.job_id} caught exception '#{exception}'"
  end
   
+   scheduler.cron('06 18 * * fri') do 
+     puts "test"
+   end
  
     #Lotto Wednesday Draw => Every Wednesday at 0600 UTC
-     scheduler.cron('35 11 * * sat') do  
+     scheduler.cron('50 13 * * sat') do  
       @subscription = Subscription.find(2)
       @users = @subscription.users
       @subject = @subscription.subject
+      puts @subject
         for user in @users
           @lotto_numbers = (1..49).to_a.sort{rand() - 0.5 } [0..5]
           @recipients = user.email
