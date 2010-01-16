@@ -1,6 +1,6 @@
  require 'rubygems'
  require 'rufus/scheduler'
- require 'user_mailer'
+
  
  scheduler = Rufus::Scheduler::PlainScheduler.start_new   
  
@@ -13,7 +13,7 @@
    end
  
     #Lotto Wednesday Draw => Every Wednesday at 0600 UTC
-     scheduler.cron('0 14 * * sat') do  
+     scheduler.cron('2 14 * * sat') do  
       @subscription = Subscription.find(2)
       @users = @subscription.users
       @subject = @subscription.subject
