@@ -7,13 +7,9 @@
  def scheduler.handle_exception (job, exception)
    puts "job #{job.job_id} caught exception '#{exception}'"
  end
-  
-   scheduler.cron('06 18 * * fri') do 
-     puts "test"
-   end
  
-    #Lotto Wednesday Draw => Every Wednesday at 0600 UTC
-     scheduler.cron('2 14 * * sat') do  
+    #Lotto Wednesday Draw => Every Wednesday at 1400 UTC
+     scheduler.cron('0 16 * * sat') do  
       @subscription = Subscription.find(2)
       @users = @subscription.users
       @subject = @subscription.subject
@@ -26,8 +22,8 @@
         end
     end
 
-    #Euro Millions Draw => Every Friday at 0600 UTC
-     scheduler.cron('0 6 * * fri') do  
+    #Euro Millions Draw => Every Friday at 1400 UTC
+     scheduler.cron('1 16 * * sat') do  
       @subscription = Subscription.find(3)
       @users = @subscription.users
       @subject = @subscription.subject
@@ -40,8 +36,8 @@
         end
     end
 
-   #Lotto Saturday Draw => Every Saturday at 0600 UTC
-    scheduler.cron('04 23 * * sat') do  
+   #Lotto Saturday Draw => Every Saturday at 1400 UTC
+    scheduler.cron('2 16 * * sat') do  
      @subscription = Subscription.find(4)
      @users = @subscription.users
      @subject = @subscription.subject
@@ -53,8 +49,8 @@
        end
    end
 
-   #Thunderball Saturday Draw => Every Saturday at 0605 UTC
-    scheduler.cron('5 6 * * sat') do  
+   #Thunderball Saturday Draw => Every Saturday at 1405 UTC
+    scheduler.cron('3 16 * * sat') do  
      @subscription = Subscription.find(5)
      @users = @subscription.users
      @subject = @subscription.subject
@@ -67,8 +63,8 @@
        end
    end
 
-   #Thunderball Wednesday Draw => Every Wednesday at 0610 UTC
-    scheduler.cron('29 23 * * thu') do  
+   #Thunderball Wednesday Draw => Every Wednesday at 1405 UTC
+    scheduler.cron('4 16 * * sat') do  
      @subscription = Subscription.find(6)
      @users = @subscription.users
      @subject = @subscription.subject
@@ -82,7 +78,7 @@
    end
 
    #Powerball USA Wednesday => Every Wednesday at 1600 UTC
-    scheduler.cron('0 16 * * wed') do  
+    scheduler.cron('5 16 * * sat') do  
      @subscription = Subscription.find(7)
      @users = @subscription.users
      @subject = @subscription.subject
@@ -95,8 +91,8 @@
        end
    end
 
-   #Powerball USA Saturday => Every Saturday at 1600 UTC
-    scheduler.cron('0 16 * * sat') do  
+   #Powerball USA Saturday => Every Saturday at 1900 UTC
+    scheduler.cron('6 16 * * sat') do  
      @subscription = Subscription.find(8)
      @users = @subscription.users
      @subject = @subscription.subject
@@ -109,8 +105,8 @@
        end
    end
 
-   #Canada 649 Wednesday => Every Wednesday at 1605 UTC
-    scheduler.cron('5 16 * * wed') do  
+   #Canada 649 Wednesday => Every Wednesday at 1905 UTC
+    scheduler.cron('7 16 * * sat') do  
      @subscription = Subscription.find(9)
      @users = @subscription.users
      @subject = @subscription.subject
@@ -122,8 +118,8 @@
        end
    end
 
-   #Canada 649 Saturday => Every Saturday at 1605 UTC
-    scheduler.cron('5 16 * * sat') do  
+   #Canada 649 Saturday => Every Saturday at 1910 UTC
+    scheduler.cron('8 16 * * sat') do  
      @subscription = Subscription.find(10)
      @users = @subscription.users
      @subject = @subscription.subject
@@ -135,8 +131,8 @@
        end
    end
 
-   #USA Mega Millions Tuesday => Every Tuesday at 1610 UTC
-    scheduler.cron('0 16 * * tue') do  
+   #USA Mega Millions Tuesday => Every Tuesday at 1900 UTC
+    scheduler.cron('9 16 * * sat') do  
      @subscription = Subscription.find(11)
      @users = @subscription.users
      @subject = @subscription.subject
@@ -149,8 +145,8 @@
        end
    end
 
-   #USA Mega Millions Friday => Every Friday at 1600 UTC
-    scheduler.cron('0 16 * * fri') do  
+   #USA Mega Millions Friday => Every Friday at 1915 UTC
+    scheduler.cron('10 16 * * sat') do  
      @subscription = Subscription.find(12)
      @users = @subscription.users
      @subject = @subscription.subject
@@ -163,8 +159,8 @@
        end
    end
 
-   #New York Lottery Wednesday => Every Wednesday at 1610 UTC
-    scheduler.cron('10 16 * * wed') do  
+   #New York Lottery Wednesday => Every Wednesday at 1920 UTC
+    scheduler.cron('11 16 * * sat') do  
      @subscription = Subscription.find(13)
      @users = @subscription.users
      @subject = @subscription.subject
@@ -176,8 +172,8 @@
        end
    end
 
-   #New York Lottery Saturday => Every Saturday at 1615 UTC
-    scheduler.cron('15 16 * * sat') do  
+   #New York Lottery Saturday => Every Saturday at 1920 UTC
+    scheduler.cron('12 16 * * sat') do  
      @subscription = Subscription.find(14)
      @users = @subscription.users
      @subject = @subscription.subject
@@ -189,8 +185,8 @@
        end
    end
 
-   #Irish Lottery Wednesday => Every Wednesday at 0615 UTC
-    scheduler.cron('15 6 * * wed') do  
+   #Irish Lottery Wednesday => Every Wednesday at 1415 UTC
+    scheduler.cron('13 16 * * sat') do  
      @subscription = Subscription.find(15)
      @users = @subscription.users
      @subject = @subscription.subject
@@ -203,7 +199,7 @@
    end
 
    #Irish Lottery Saturday => Every Saturday at 0615 UTC
-    scheduler.cron('49 2 * * sun') do  
+    scheduler.cron('14 16 * * sat') do  
      @subscription = Subscription.find(16)
      @users = @subscription.users
      @subject = @subscription.subject
