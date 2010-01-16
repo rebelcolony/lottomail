@@ -10,7 +10,7 @@
   
  
     #Lotto Wednesday Draw => Every Wednesday at 0600 UTC
-     scheduler.cron('27 18 * * fri') do  
+     scheduler.cron('35 11 * * sat') do  
       @subscription = Subscription.find(2)
       @users = @subscription.users
       @subject = @subscription.subject
