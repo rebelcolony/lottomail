@@ -1,8 +1,10 @@
-Hi <%= @user.name %>,
+<p>Hi <%= @user.name %>,</p>
 
-Thanks for registering with Lottomail.
+<p>Thanks for registering with Lottomail.</p>
 
-You have signed up for these lottery notifications:
+<p>You have signed up for these lottery notifications:</p>
+<ul>
 <% for subscription in @user.subscriptions %>
 	<li><%= subscription.name %></li>
 <% end -%>
+</ul>
