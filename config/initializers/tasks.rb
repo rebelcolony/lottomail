@@ -1,212 +1,212 @@
- require 'rubygems'
- require 'rufus/scheduler'
+require 'rubygems'
+require 'rufus/scheduler'
 
- 
- scheduler = Rufus::Scheduler::PlainScheduler.start_new   
- 
- def scheduler.handle_exception (job, exception)
-   puts "job #{job.job_id} caught exception '#{exception}'"
- end
- 
-    #Lotto Wednesday Draw => Every Wednesday at 1400 UTC
-     scheduler.cron('0 14 * * wed') do  
-      @subscription = Subscription.find(2)
-      @users = @subscription.users
-      @subject = @subscription.subject
-      puts @subject
-        for user in @users
-          @lotto_numbers = (1..49).to_a.sort{rand() - 0.5 } [0..5]
-          @recipients = user.email
-          UserMailer.deliver_lotto_wednesday_subscription(@recipients, @subject, @lotto_numbers)
-          @subscription.update_attribute(:delivered_at, Time.now)
-        end
-    end
 
-    #Euro Millions Draw => Every Friday at 1400 UTC
-     scheduler.cron('0 14 * * fri') do  
-      @subscription = Subscription.find(3)
-      @users = @subscription.users
-      @subject = @subscription.subject
-        for user in @users
-          @euro_numbers = (1..50).to_a.sort{ rand() - 0.5 }[0..4]
-          @euro_stars = (1..9).to_a.sort{ rand() - 0.5 }[0..1]
-          @recipients = user.email
-          UserMailer.deliver_euro_subscription(@recipients, @subject, @euro_numbers, @euro_stars)
-          @subscription.update_attribute(:delivered_at, Time.now)
-        end
-    end
+scheduler = Rufus::Scheduler::PlainScheduler.start_new   
 
-   #Lotto Saturday Draw => Every Saturday at 1400 UTC
-    scheduler.cron('0 14 * * sat') do  
-     @subscription = Subscription.find(4)
+def scheduler.handle_exception (job, exception)
+  puts "job #{job.job_id} caught exception '#{exception}'"
+end
+
+   #Lotto Wednesday Draw => Every Wednesday at 1400 UTC
+    scheduler.cron('0 14 * * wed') do  
+     @subscription = Subscription.find(2)
      @users = @subscription.users
      @subject = @subscription.subject
+     puts @subject
        for user in @users
          @lotto_numbers = (1..49).to_a.sort{rand() - 0.5 } [0..5]
          @recipients = user.email
-         UserMailer.deliver_lotto_saturday_subscription(@recipients, @subject, @lotto_numbers)
+         UserMailer.deliver_lotto_wednesday_subscription(@recipients, @subject, @lotto_numbers)
          @subscription.update_attribute(:delivered_at, Time.now)
        end
    end
 
-   #Thunderball Saturday Draw => Every Saturday at 1405 UTC
-    scheduler.cron('5 14 * * sat') do  
-     @subscription = Subscription.find(5)
+   #Euro Millions Draw => Every Friday at 1400 UTC
+    scheduler.cron('0 14 * * fri') do  
+     @subscription = Subscription.find(3)
      @users = @subscription.users
      @subject = @subscription.subject
        for user in @users
-         @thunder_main_numbers = (1..34).to_a.sort{ rand() - 0.5 }[0..4]
-         @thunderball = rand(14) + 1
+         @euro_numbers = (1..50).to_a.sort{ rand() - 0.5 }[0..4]
+         @euro_stars = (1..9).to_a.sort{ rand() - 0.5 }[0..1]
          @recipients = user.email
-         UserMailer.deliver_thunder_saturday_subscription(@recipients, @subject, @thunder_main_numbers, @thunderball)
+         UserMailer.deliver_euro_subscription(@recipients, @subject, @euro_numbers, @euro_stars)
          @subscription.update_attribute(:delivered_at, Time.now)
        end
    end
 
-   #Thunderball Wednesday Draw => Every Wednesday at 1405 UTC
-    scheduler.cron('5 14 * * wed') do  
-     @subscription = Subscription.find(6)
-     @users = @subscription.users
-     @subject = @subscription.subject
-       for user in @users
-         @thunder_main_numbers = (1..34).to_a.sort{ rand() - 0.5 }[0..4]
-         @thunderball = rand(14) + 1
-         @recipients = user.email
-         UserMailer.deliver_thunder_wednesday_subscription(@recipients, @subject, @thunder_main_numbers, @thunderball)
-         @subscription.update_attribute(:delivered_at, Time.now)
-       end
-   end
+  #Lotto Saturday Draw => Every Saturday at 1400 UTC
+   scheduler.cron('0 14 * * sat') do  
+    @subscription = Subscription.find(4)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @lotto_numbers = (1..49).to_a.sort{rand() - 0.5 } [0..5]
+        @recipients = user.email
+        UserMailer.deliver_lotto_saturday_subscription(@recipients, @subject, @lotto_numbers)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
 
-   #Powerball USA Wednesday => Every Wednesday at 1900 UTC
-    scheduler.cron('0 19 * * wed') do  
-     @subscription = Subscription.find(7)
-     @users = @subscription.users
-     @subject = @subscription.subject
-       for user in @users
-         @powerball_main_numbers =  (1..59).to_a.sort{ rand() - 0.5 }[0..4]
-         @powerball =  rand(39) + 1
-         @recipients = user.email
-         UserMailer.deliver_powerball_wednesday_subscription(@recipients, @subject, @powerball_main_numbers, @powerball)
-         @subscription.update_attribute(:delivered_at, Time.now)
-       end
-   end
+  #Thunderball Saturday Draw => Every Saturday at 1405 UTC
+   scheduler.cron('5 14 * * sat') do  
+    @subscription = Subscription.find(5)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @thunder_main_numbers = (1..34).to_a.sort{ rand() - 0.5 }[0..4]
+        @thunderball = rand(14) + 1
+        @recipients = user.email
+        UserMailer.deliver_thunder_saturday_subscription(@recipients, @subject, @thunder_main_numbers, @thunderball)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
 
-   #Powerball USA Saturday => Every Saturday at 1900 UTC
-    scheduler.cron('0 19 * * sat') do  
-     @subscription = Subscription.find(8)
-     @users = @subscription.users
-     @subject = @subscription.subject
-       for user in @users
-         @powerball_main_numbers =  (1..59).to_a.sort{ rand() - 0.5 }[0..4]
-         @powerball =  rand(39) + 1
-         @recipients = user.email
-         UserMailer.deliver_powerball_saturday_subscription(@recipients, @subject, @powerball_main_numbers, @powerball)
-         @subscription.update_attribute(:delivered_at, Time.now)
-       end
-   end
+  #Thunderball Wednesday Draw => Every Wednesday at 1405 UTC
+   scheduler.cron('5 14 * * wed') do  
+    @subscription = Subscription.find(6)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @thunder_main_numbers = (1..34).to_a.sort{ rand() - 0.5 }[0..4]
+        @thunderball = rand(14) + 1
+        @recipients = user.email
+        UserMailer.deliver_thunder_wednesday_subscription(@recipients, @subject, @thunder_main_numbers, @thunderball)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
 
-   #Canada 649 Wednesday => Every Wednesday at 1905 UTC
-    scheduler.cron('5 19 * * wed') do  
-     @subscription = Subscription.find(9)
-     @users = @subscription.users
-     @subject = @subscription.subject
-       for user in @users
-         @canada649_numbers =  (1..59).to_a.sort{ rand() - 0.5 }[0..5]
-         @recipients = user.email
-         UserMailer.deliver_canada649_wednesday_subscription(@recipients, @subject, @canada649_numbers)
-         @subscription.update_attribute(:delivered_at, Time.now)
-       end
-   end
+  #Powerball USA Wednesday => Every Wednesday at 1900 UTC
+   scheduler.cron('0 19 * * wed') do  
+    @subscription = Subscription.find(7)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @powerball_main_numbers =  (1..59).to_a.sort{ rand() - 0.5 }[0..4]
+        @powerball =  rand(39) + 1
+        @recipients = user.email
+        UserMailer.deliver_powerball_wednesday_subscription(@recipients, @subject, @powerball_main_numbers, @powerball)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
 
-   #Canada 649 Saturday => Every Saturday at 1910 UTC
-    scheduler.cron('10 19 * * sat') do  
-     @subscription = Subscription.find(10)
-     @users = @subscription.users
-     @subject = @subscription.subject
-       for user in @users
-         @canada649_numbers =  (1..59).to_a.sort{ rand() - 0.5 }[0..5]
-         @recipients = user.email
-         UserMailer.deliver_canada649_saturday_subscription(@recipients, @subject, @canada649_numbers)
-         @subscription.update_attribute(:delivered_at, Time.now)
-       end
-   end
+  #Powerball USA Saturday => Every Saturday at 1900 UTC
+   scheduler.cron('0 19 * * sat') do  
+    @subscription = Subscription.find(8)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @powerball_main_numbers =  (1..59).to_a.sort{ rand() - 0.5 }[0..4]
+        @powerball =  rand(39) + 1
+        @recipients = user.email
+        UserMailer.deliver_powerball_saturday_subscription(@recipients, @subject, @powerball_main_numbers, @powerball)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
 
-   #USA Mega Millions Tuesday => Every Tuesday at 1900 UTC
-    scheduler.cron('0 19 * * tue') do  
-     @subscription = Subscription.find(11)
-     @users = @subscription.users
-     @subject = @subscription.subject
-       for user in @users
-         @usamega_numbers =  (1..56).to_a.sort{ rand() - 0.5 }[0..4]
-         @megaball =  rand(46) + 1
-         @recipients = user.email
-         UserMailer.deliver_usamega_tuesday_subscription(@recipients, @subject, @usamega_numbers, @megaball)
-         @subscription.update_attribute(:delivered_at, Time.now)
-       end
-   end
+  #Canada 649 Wednesday => Every Wednesday at 1905 UTC
+   scheduler.cron('5 19 * * wed') do  
+    @subscription = Subscription.find(9)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @canada649_numbers =  (1..59).to_a.sort{ rand() - 0.5 }[0..5]
+        @recipients = user.email
+        UserMailer.deliver_canada649_wednesday_subscription(@recipients, @subject, @canada649_numbers)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
 
-   #USA Mega Millions Friday => Every Friday at 1915 UTC
-    scheduler.cron('15 19 * * fri') do  
-     @subscription = Subscription.find(12)
-     @users = @subscription.users
-     @subject = @subscription.subject
-       for user in @users
-         @usamega_numbers =  (1..56).to_a.sort{ rand() - 0.5 }[0..4]
-         @megaball =  rand(46) + 1
-         @recipients = user.email
-         UserMailer.deliver_usamega_friday_subscription(@recipients, @subject, @usamega_numbers, @megaball)
-         @subscription.update_attribute(:delivered_at, Time.now)
-       end
-   end
+  #Canada 649 Saturday => Every Saturday at 1910 UTC
+   scheduler.cron('10 19 * * sat') do  
+    @subscription = Subscription.find(10)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @canada649_numbers =  (1..59).to_a.sort{ rand() - 0.5 }[0..5]
+        @recipients = user.email
+        UserMailer.deliver_canada649_saturday_subscription(@recipients, @subject, @canada649_numbers)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
 
-   #New York Lottery Wednesday => Every Wednesday at 1920 UTC
-    scheduler.cron('20 19 * * wed') do  
-     @subscription = Subscription.find(13)
-     @users = @subscription.users
-     @subject = @subscription.subject
-       for user in @users
-         @newyork_numbers =  (1..59).to_a.sort{ rand() - 0.5 }[0..5]
-         @recipients = user.email
-         UserMailer.deliver_newyork_wednesday_subscription(@recipients, @subject, @newyork_numbers)
-         @subscription.update_attribute(:delivered_at, Time.now)
-       end
-   end
+  #USA Mega Millions Tuesday => Every Tuesday at 1900 UTC
+   scheduler.cron('0 19 * * tue') do  
+    @subscription = Subscription.find(11)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @usamega_numbers =  (1..56).to_a.sort{ rand() - 0.5 }[0..4]
+        @megaball =  rand(46) + 1
+        @recipients = user.email
+        UserMailer.deliver_usamega_tuesday_subscription(@recipients, @subject, @usamega_numbers, @megaball)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
 
-   #New York Lottery Saturday => Every Saturday at 1920 UTC
-    scheduler.cron('20 19 * * sat') do  
-     @subscription = Subscription.find(14)
-     @users = @subscription.users
-     @subject = @subscription.subject
-       for user in @users
-         @newyork_numbers =  (1..59).to_a.sort{ rand() - 0.5 }[0..5]
-         @recipients = user.email
-         UserMailer.deliver_newyork_saturday_subscription(@recipients, @subject, @newyork_numbers)
-         @subscription.update_attribute(:delivered_at, Time.now)
-       end
-   end
+  #USA Mega Millions Friday => Every Friday at 1915 UTC
+   scheduler.cron('15 19 * * fri') do  
+    @subscription = Subscription.find(12)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @usamega_numbers =  (1..56).to_a.sort{ rand() - 0.5 }[0..4]
+        @megaball =  rand(46) + 1
+        @recipients = user.email
+        UserMailer.deliver_usamega_friday_subscription(@recipients, @subject, @usamega_numbers, @megaball)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
 
-   #Irish Lottery Wednesday => Every Wednesday at 1415 UTC
-    scheduler.cron('15 14 * * wed') do  
-     @subscription = Subscription.find(15)
-     @users = @subscription.users
-     @subject = @subscription.subject
-       for user in @users
-         @irish_numbers =  (1..45).to_a.sort{ rand() - 0.5 }[0..5]
-         @recipients = user.email
-         UserMailer.deliver_irish_wednesday_subscription(@recipients, @subject, @irish_numbers)
-         @subscription.update_attribute(:delivered_at, Time.now)
-       end
-   end
+  #New York Lottery Wednesday => Every Wednesday at 1920 UTC
+   scheduler.cron('20 19 * * wed') do  
+    @subscription = Subscription.find(13)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @newyork_numbers =  (1..59).to_a.sort{ rand() - 0.5 }[0..5]
+        @recipients = user.email
+        UserMailer.deliver_newyork_wednesday_subscription(@recipients, @subject, @newyork_numbers)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
 
-   #Irish Lottery Saturday => Every Saturday at 1430 UTC
-    scheduler.cron('30 14 * * sat') do  
-     @subscription = Subscription.find(16)
-     @users = @subscription.users
-     @subject = @subscription.subject
-       for user in @users
-         @irish_numbers =  (1..45).to_a.sort{ rand() - 0.5 }[0..5]
-         @recipients = user.email
-         UserMailer.deliver_irish_saturday_subscription(@recipients, @subject, @irish_numbers)
-         @subscription.update_attribute(:delivered_at, Time.now)
-       end
-   end
+  #New York Lottery Saturday => Every Saturday at 1920 UTC
+   scheduler.cron('20 19 * * sat') do  
+    @subscription = Subscription.find(14)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @newyork_numbers =  (1..59).to_a.sort{ rand() - 0.5 }[0..5]
+        @recipients = user.email
+        UserMailer.deliver_newyork_saturday_subscription(@recipients, @subject, @newyork_numbers)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
+
+  #Irish Lottery Wednesday => Every Wednesday at 1415 UTC
+   scheduler.cron('15 14 * * wed') do  
+    @subscription = Subscription.find(15)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @irish_numbers =  (1..45).to_a.sort{ rand() - 0.5 }[0..5]
+        @recipients = user.email
+        UserMailer.deliver_irish_wednesday_subscription(@recipients, @subject, @irish_numbers)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
+
+  #Irish Lottery Saturday => Every Saturday at 1430 UTC
+   scheduler.cron('30 14 * * sat') do  
+    @subscription = Subscription.find(16)
+    @users = @subscription.users
+    @subject = @subscription.subject
+      for user in @users
+        @irish_numbers =  (1..45).to_a.sort{ rand() - 0.5 }[0..5]
+        @recipients = user.email
+        UserMailer.deliver_irish_saturday_subscription(@recipients, @subject, @irish_numbers)
+        @subscription.update_attribute(:delivered_at, Time.now)
+      end
+  end
