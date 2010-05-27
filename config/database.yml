@@ -6,3 +6,12 @@ development:
   pool: 5
   username: root
   password: depassion
+  
+test:  
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: lotto_test  
+  pool: 5
+  username: root
+  password: depassion
