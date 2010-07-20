@@ -5,4 +5,4 @@ development:
   database: lotto_development
   pool: 5
   username: root
-  password: depassion
+  password: pa55wd

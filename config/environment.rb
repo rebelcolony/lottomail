@@ -40,4 +40,4 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-  ExceptionNotifier.exception_recipients = %w(support@lottomail.org)
+ExceptionNotifier.exception_recipients = %w(support@lottomail.org)
