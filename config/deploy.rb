@@ -18,7 +18,7 @@ set :deploy_to, "/var/www/apps/#{application}"
 set :user, "kevin"
 
 # SSH Keys
-ssh_options[:keys] = %w(/Users/kevin/.ssh/id_rsa)
+ssh_options[:keys] = %w(/Users/kevin/.ssh/id_rsa /Users/alastairbrunton/.ssh/ndthub)
 ssh_options[:port] = 8888
 
 after "deploy:update_code", "recipiez:rename_db_file"
