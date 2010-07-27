@@ -24,19 +24,7 @@ end
 
 
 
-#Euro Millions Draw => Every Friday at 1400 UTC
-scheduler.cron('0 20 * * mon') do
-  @subscription = Subscription.find(3)
-  @users = @subscription.users
-  @subject = @subscription.subject
-  for user in @users
-    @euro_numbers = (1..50).to_a.sort{ rand() - 0.5 }[0..4]
-    @euro_stars = (1..9).to_a.sort{ rand() - 0.5 }[0..1]
-    @recipients = user.email
-    UserMailer.deliver_euro_subscription(@recipients, @subject, @euro_numbers, @euro_stars)
-    @subscription.update_attribute(:delivered_at, Time.now)
-  end
-end
+
 
 
 #Euro Millions Draw => Every Friday at 1400 UTC
@@ -65,6 +53,22 @@ scheduler.cron('0 14 * * sat') do
     @subscription.update_attribute(:delivered_at, Time.now)
   end
 end
+
+#Thunderball Saturday Draw => Every Saturday at 1405 UTC
+scheduler.cron('30 20 * * tue') do
+  @subscription = Subscription.find(5)
+  @users = @subscription.users
+  @subject = @subscription.subject
+  for user in @users
+    @thunder_main_numbers = (1..34).to_a.sort{ rand() - 0.5 }[0..4]
+    @thunderball = rand(14) + 1
+    @recipients = user.email
+    UserMailer.deliver_thunder_saturday_subscription(@recipients, @subject, @thunder_main_numbers, @thunderball)
+    @subscription.update_attribute(:delivered_at, Time.now)
+  end
+end
+
+
 
 #Thunderball Saturday Draw => Every Saturday at 1405 UTC
 scheduler.cron('5 14 * * sat') do
