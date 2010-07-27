@@ -54,20 +54,6 @@ scheduler.cron('0 14 * * sat') do
   end
 end
 
-#Thunderball Saturday Draw => Every Saturday at 1405 UTC
-scheduler.cron('30 20 * * tue') do
-  @subscription = Subscription.find(5)
-  @users = @subscription.users
-  @subject = @subscription.subject
-  for user in @users
-    @thunder_main_numbers = (1..34).to_a.sort{ rand() - 0.5 }[0..4]
-    @thunderball = rand(14) + 1
-    @recipients = user.email
-    UserMailer.deliver_thunder_saturday_subscription(@recipients, @subject, @thunder_main_numbers, @thunderball)
-    @subscription.update_attribute(:delivered_at, Time.now)
-  end
-end
-
 
 
 #Thunderball Saturday Draw => Every Saturday at 1405 UTC
