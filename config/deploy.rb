@@ -24,6 +24,17 @@ ssh_options[:port] = 8888
 after "deploy:update_code", "recipiez:rename_db_file"
 before "deploy:symlink", "deploy:change_owner" 
 
+
+set :db_user, 'root'
+set :db_password, 'Ve7arb'
+set :db_local_user, db_user
+set :db_local_password, 'pa55wd'
+set :dump_dir, '/Users/alastairbrunton/dumps/'
+set :database_to_dump, 'lotto'
+set :db_dev, "lotto_development"
+
+
+
 namespace :deploy do
   task :restart do
     recipiez::restart_passenger

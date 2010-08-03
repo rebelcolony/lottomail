@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/deployment_recipiezz"]
+	path = vendor/plugins/deployment_recipiezz
+	url = git://github.com/pyrat/deployment_recipiez.git

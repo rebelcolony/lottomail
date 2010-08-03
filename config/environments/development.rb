@@ -17,3 +17,5 @@ config.action_mailer.smtp_settings = {
   :user_name => "support@lottomail.org",
   :password => "lottosupport"
 }
+
+config.action_mailer.perform_deliveries = false
