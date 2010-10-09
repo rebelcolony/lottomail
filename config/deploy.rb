@@ -6,6 +6,7 @@ set :scm, :git
 set :scm_verbose, true
 default_run_options[:pty] = true
 set :branch, "master"
+set :git_enable_submodules, 1
 
 set :address, "lottomail.org"
 
@@ -22,28 +23,32 @@ ssh_options[:keys] = %w(/Users/kevin/.ssh/id_rsa /Users/alastairbrunton/.ssh/ndt
 ssh_options[:port] = 8888
 
 after "deploy:update_code", "recipiez:rename_db_file"
-before "deploy:symlink", "deploy:change_owner" 
+before "deploy:symlink", "deploy:change_owner"
+after "deploy:symlink", "deploy:update_crontab"
+
+
+set :db_user, 'root'
+set :db_password, 'Ve7arb'
+set :db_local_user, db_user
+set :db_local_password, 'pa55wd'
+set :dump_dir, '/Users/alastairbrunton/dumps/'
+set :database_to_dump, 'lotto'
+set :db_dev, "lotto_development"
+
+
 
 namespace :deploy do
   task :restart do
     recipiez::restart_passenger
   end
   
-  # If you are using Passenger mod_rails uncomment this:
-  # if you're still using the script/reapear helper you will need
-  # these http://github.com/rails/irs_process_scripts
-
-#   namespace :deploy do
-#     task :start do ; end
-#     task :stop do ; end
-#     task :restart, :roles => :app, :except => { :no_release => true } do
-#       run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#     end
-#   end
-#  end
-  
   task :change_owner do
     run "chown -R kevin:kevin #{release_path}"
+  end
+  
+  desc "Update the crontab file"
+  task :update_crontab, :roles => :db do
+    run "cd #{release_path} && whenever --update-crontab #{application}"
   end
 end
 
