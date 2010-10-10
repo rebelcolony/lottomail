@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20091231083013) do
     t.datetime "delivered_at"
   end
 
-  create_table "subscriptions_users", :force => true do |t|
+  create_table "subscriptions_users", :id => false, :force => true do |t|
     t.integer  "subscription_id"
     t.integer  "user_id"
     t.datetime "created_at"

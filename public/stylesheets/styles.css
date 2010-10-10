@@ -272,6 +272,11 @@ h2 {
 	margin-left:10px;
 }
 
+#password_submit_button {
+	margin-left:177px;
+	margin-top:10px;
+}
+
 input {
 	margin:0;
 	padding:0;
